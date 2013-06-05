@@ -1,0 +1,22 @@
+{
+  "name": "ronny-cache",
+  "version": "0.0.1",
+  "description": "cache your javascript functions transparently in Redis or in-memory",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "xxx"
+  },
+  "keywords": [
+    "redis",
+    "cache"
+  ],
+  "author": "Johann Philipp Strathausen <philipp@stratha.us>",
+  "license": "BSD",
+  "dependencies": {
+    "redis": "~0.8.3"
+  }
+}
