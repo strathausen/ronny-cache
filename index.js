@@ -47,7 +47,7 @@ Ronny.prototype.wrap = function RonnyWrap(fun) {
           return cb(err);
         }
         result = slice.call(arguments, 1);
-        self.store.set(key, result, console.log);
+        self.store.set(key, result);
         cb.apply(null, result);
       });
       fun.apply(null, args);
