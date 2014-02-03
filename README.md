@@ -1,6 +1,6 @@
 # ronny-cache - async function cacher
 
-Do you sometimes have asynchroneous functions
+Do you sometimes have asynchronous functions
 that do slow things,
 like
 parsing files,
@@ -14,7 +14,7 @@ Ronny Cache is there to help.
 
 ## What it does.
 
-`ronny-cache` is a node module that wraps asynchroneous functions
+`ronny-cache` is a node module that wraps asynchronous functions
 and caches their results in Redis.
 
 ## How to use it.

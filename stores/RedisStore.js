@@ -19,8 +19,7 @@ RonnyRedis.prototype.set = function RonnyRedisSetter(key, value, cb) {
 RonnyRedis.prototype.get = function RonnyRedisGetter(key, cb) {
   this.client.get(key, function(err, res) {
     if (err) {
-      cb(err);
-      return;
+      return cb(err);
     }
     var result;
     try {
