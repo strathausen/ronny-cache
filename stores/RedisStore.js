@@ -13,7 +13,7 @@ var RonnyRedis = function RonnyRedis(opts) {
 };
 
 RonnyRedis.prototype.set = function RonnyRedisSetter(key, value, cb) {
-  this.client.psetex(key, maxAge, JSON.stringify(value), cb);
+  this.client.psetex(key, this.maxAge, JSON.stringify(value), cb);
 };
 
 RonnyRedis.prototype.get = function RonnyRedisGetter(key, cb) {

@@ -5,17 +5,20 @@ var _      = require('underscore'),
     slice  = Array.prototype.slice,
     Ronny;
 
-module.exports = Ronny = function RonnyCache(opts) {
-  _.extends(opts, { maxAge: '10s' });
-  var u, Store, store,
-      db = url.parse(opts.db),
-      maxAge = time(opts.maxAge);
+var eyes = require('eyes');
 
-  Store = stores[u.protocoll];
+module.exports = Ronny = function RonnyCache(opts) {
+  _.extend(opts, { maxAge: '10s' });
+  var Store, store,
+      u = url.parse(opts.db);
+
+  opts.maxAge = time(opts.maxAge);
+
+  Store = stores[u.protocol.replace(/:$/, '')];
   if(Store) {
-    this.store = new Store(db);
+    this.store = new Store(opts);
   } else {
-    throw new Error 'RonnyCache store not supported: ' + u.protocoll;
+    throw new Error('RonnyCache store not supported: ' + u.protocoll);
   }
 };
 
@@ -33,7 +36,7 @@ Ronny.prototype.wrap = function RonnyWrap(fun) {
       
       // Cache hit
       if(result) {
-        return cb(null, result);
+        return cb.apply(null, result);
       }
 
       args.push(function() {
@@ -44,7 +47,8 @@ Ronny.prototype.wrap = function RonnyWrap(fun) {
           return cb(err);
         }
         result = slice.call(arguments, 1);
-        self.store.set(key, result);
+        self.store.set(key, result, console.log);
+        cb.apply(null, result);
       });
       fun.apply(null, args);
     });
