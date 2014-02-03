@@ -7,7 +7,7 @@ cache = new Cache({
 var myFun = function(a, b, cb) {
   setTimeout(function() {
     cb(null, a, b * Math.random());
-  }, 500);
+  }, 1500);
 };
 
 var cachedFun = cache.wrap(myFun);

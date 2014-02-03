@@ -2,7 +2,7 @@
   "author": "Johann Philipp Strathausen <strathausen@gmail.com>",
   "name": "ronny-cache",
   "homepage": "https://github.com/strathausen/ronny-cache",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Cache your asynchronous functions transparently in Redis or in-memory",
   "main": "index.js",
   "scripts": {

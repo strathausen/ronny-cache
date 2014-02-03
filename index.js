@@ -36,7 +36,7 @@ Ronny.prototype.wrap = function RonnyWrap(fun) {
       
       // Cache hit
       if(result) {
-        return cb.apply(null, result);
+        return cb.apply(null, [ null ].concat(result));
       }
 
       args.push(function() {
@@ -48,7 +48,7 @@ Ronny.prototype.wrap = function RonnyWrap(fun) {
         }
         result = slice.call(arguments, 1);
         self.store.set(key, result);
-        cb.apply(null, result);
+        cb.apply(null,  [ null ].concat(result));
       });
       fun.apply(null, args);
     });
