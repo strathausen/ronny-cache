@@ -39,6 +39,8 @@ function mySlowApiFileParserQuery(a, b, c, callback) {
 var cachedFunction = ronny.wrap(mySlowApiFileParserQuery);
 ```
 
+Here's a list of time aliases for `maxTime`: https://npmjs.org/package/english-time#ref
+
 ## TODO
 
 - support promises to be cached (pull-requests welcome)
