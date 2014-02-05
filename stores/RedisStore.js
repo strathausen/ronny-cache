@@ -8,7 +8,7 @@ var RonnyRedis = function RonnyRedis(opts) {
   this.maxAge = opts.maxAge;
 
   if(db.auth) {
-    client.auth(redisURL.auth.split(":")[1]);
+    this.client.auth(redisURL.auth.split(":")[1]);
   }
 };
 
