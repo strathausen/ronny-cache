@@ -1,9 +1,10 @@
 var RonnyRedis = function RonnyRedis(opts) {
+  require('eyes').inspect(opts);
   var redis = require('redis'),
       db = opts.db;
-    this.client = redis.createClient(db.port, db.hostname, {
-      no_ready_check: true
-    });
+  this.client = redis.createClient(db.port, db.hostname, {
+    no_ready_check: true
+  });
   
   this.maxAge = opts.maxAge;
 

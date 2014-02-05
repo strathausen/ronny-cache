@@ -8,7 +8,9 @@ var _      = require('underscore'),
 module.exports = Ronny = function RonnyCache(opts) {
   _.extend(opts, { maxAge: '10s' });
   var Store, store,
+      // TODO check if opts.db already is an object
       u = url.parse(opts.db);
+  opts.db = u;
 
   opts.maxAge = time(opts.maxAge);
 
