@@ -5,8 +5,6 @@ var _      = require('underscore'),
     slice  = Array.prototype.slice,
     Ronny;
 
-var eyes = require('eyes');
-
 module.exports = Ronny = function RonnyCache(opts) {
   _.extend(opts, { maxAge: '10s' });
   var Store, store,
