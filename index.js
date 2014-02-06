@@ -6,7 +6,7 @@ var _      = require('underscore'),
     Ronny;
 
 module.exports = Ronny = function RonnyCache(opts) {
-  _.extend(opts, { maxAge: '10s' });
+  _.extend({ maxAge: '10s' }, opts);
   var Store, store,
       // TODO check if opts.db already is an object
       u = url.parse(opts.db);
