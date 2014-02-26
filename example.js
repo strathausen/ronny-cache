@@ -1,7 +1,7 @@
 var Cache = require('./');
 cache = new Cache({
   db     : 'redis://',
-  maxAge : 2000
+  maxAge : '2s'
 });
 
 var myFun = function(a, b, cb) {

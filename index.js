@@ -14,6 +14,8 @@ module.exports = Ronny = function RonnyCache(opts) {
 
   opts.maxAge = time(opts.maxAge);
 
+  this.prefix = opts.prefix || '';
+
   Store = stores[u.protocol.replace(/:$/, '')];
   if(Store) {
     this.store = new Store(opts);
@@ -27,7 +29,7 @@ Ronny.prototype.wrap = function RonnyWrap(fun) {
   return function RonnyWrapped() {
     var args = slice.call(arguments, 0, arguments.length - 1),
         cb   = arguments[arguments.length - 1],
-        key  = JSON.stringify(args);
+        key  = self.prefix + JSON.stringify(args);
 
     self.store.get(key, function(err, result) {
       if(err) {
