@@ -2,6 +2,7 @@ var _      = require('underscore'),
     time   = require('english-time'),
     url    = require('url'),
     stores = require('./stores/Stores'),
+    Promise= require('bluebird'),
     slice  = Array.prototype.slice,
     Ronny;
 
@@ -26,14 +27,14 @@ module.exports = Ronny = function RonnyCache(opts) {
 
 Ronny.prototype.wrap = function RonnyWrap(fun) {
   var self = this;
-  return function RonnyWrapped() {
+  return new Promise(resolve, reject) {
     var args = slice.call(arguments, 0, arguments.length - 1),
         cb   = arguments[arguments.length - 1],
-        key  = self.prefix + JSON.stringify(args);
+        key  = self.prefix + ':' + JSON.stringify(args);
 
     self.store.get(key, function(err, result) {
       if(err) {
-        return cb(err);
+        return ;
       }
       
       // Cache hit
